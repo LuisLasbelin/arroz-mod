@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.lbelmar.arroz_mod.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+  ],
+  "client": [
+    "ArrozMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

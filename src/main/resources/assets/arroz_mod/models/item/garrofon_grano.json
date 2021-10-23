@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "arroz_mod:item/garrofon_grano"
+    }
+}
