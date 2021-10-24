@@ -1,0 +1,34 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+      "recipes": [
+        "arroz_mod:onigiri"
+      ]
+    },
+    "criteria": {
+      "has_rice": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "arroz_mod:arroz_grano"
+              ]
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "arroz_mod:onigiri"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_rice",
+        "has_the_recipe"
+      ]
+    ]
+  }

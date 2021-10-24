@@ -15,11 +15,15 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.Material;
 import net.minecraft.block.PlantBlock;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.AliasedBlockItem;
+import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Pair;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
@@ -32,8 +36,11 @@ import net.minecraft.world.gen.placer.SimpleBlockPlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.GenerationStep;
 
+import java.util.List;
+
 import com.google.common.collect.ImmutableSet;
 
+import org.apache.commons.lang3.ObjectUtils.Null;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -57,7 +64,8 @@ public class ArrozMod implements ModInitializer {
 	public static final Item ACEITE = new Item(new Item.Settings().group(ItemGroup.MISC));
 	public static final Item AJO_CABEZA = new Item(new Item.Settings().group(ItemGroup.MISC));
 	public static final Item AJO_DIENTE = new Item(new Item.Settings().group(ItemGroup.MISC));
-	
+	public static final Item ONIGIRI = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).build()).group(ItemGroup.FOOD));
+
 	// FEATURES 
 	public static final FlowerFeature<RandomPatchFeatureConfig> AJO_FEATURE = new DefaultFlowerFeature(RandomPatchFeatureConfig.CODEC);
 	public static final ConfiguredFeature<?, ?> AJO_CONFIGURED_FEATURE = AJO_FEATURE.configure(((new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(AJO_PLANT_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE)).tries(64).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).cannotProject().build()));
@@ -77,7 +85,8 @@ public class ArrozMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "aceite"), ACEITE);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "ajo_cabeza"), AJO_CABEZA);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "ajo_diente"), AJO_DIENTE);
-
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "onigiri"), ONIGIRI);
+		
 		// BLOCK
 		LOGGER.info("Registering blocks.");
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"arroz_crop_block"), ARROZ_CROP_BLOCK);
