@@ -8,10 +8,10 @@ package net.lbelmar.arroz_mod;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.fabricmc.fabric.impl.biome.modification.BiomeSelectionContextImpl;
 import net.lbelmar.arroz_mod.Blocks.AjoPlantBlock;
 import net.lbelmar.arroz_mod.Blocks.ArrozCropBlock;
 import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.Material;
 import net.minecraft.block.PlantBlock;
@@ -24,16 +24,15 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeIds;
-import net.minecraft.world.biome.source.BiomeAccess;
-import net.minecraft.world.biome.source.BiomeAccessType;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.DefaultFlowerFeature;
 import net.minecraft.world.gen.feature.FlowerFeature;
 import net.minecraft.world.gen.feature.RandomPatchFeatureConfig;
-import net.minecraft.world.gen.feature.OceanRuinFeature.BiomeType;
-import net.minecraft.world.gen.placer.BlockPlacer;
+import net.minecraft.world.gen.placer.SimpleBlockPlacer;
+import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.GenerationStep;
+
+import com.google.common.collect.ImmutableSet;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -61,8 +60,7 @@ public class ArrozMod implements ModInitializer {
 	
 	// FEATURES 
 	public static final FlowerFeature<RandomPatchFeatureConfig> AJO_FEATURE = new DefaultFlowerFeature(RandomPatchFeatureConfig.CODEC);
-	//BlockStateProvider stateProvider, BlockPlacer blockPlacer, Set<Block> whitelist, Set<BlockState> blacklist, int tries, int spreadX, int spreadY, int spreadZ, boolean canReplace, boolean project, boolean needsWater
-	public static final ConfiguredFeature<?, ?> AJO_CONFIGURED_FEATURE = AJO_FEATURE.configure(new RandomPatchFeatureConfig(AJO_PLANT_BLOCK, BlockPlacer.TYPE_CODEC.));
+	public static final ConfiguredFeature<?, ?> AJO_CONFIGURED_FEATURE = AJO_FEATURE.configure(((new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(AJO_PLANT_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE)).tries(64).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).cannotProject().build()));
 
 	@Override
 	public void onInitialize() {
@@ -92,11 +90,10 @@ public class ArrozMod implements ModInitializer {
 		
 		// FEATURE CONFIGURATION
 		RegistryKey<ConfiguredFeature<?, ?>> ajoFeature = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
-        new Identifier("arroz_mod", "ajo_patch_feature"));
+        new Identifier("arroz_mod", "ajo_patch_feature_config"));
     	Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, ajoFeature.getValue(), AJO_CONFIGURED_FEATURE);
 
 		// BIOME FEATURES
 		BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.FOREST), GenerationStep.Feature.VEGETAL_DECORATION, ajoFeature);
-		
 	}
 }
