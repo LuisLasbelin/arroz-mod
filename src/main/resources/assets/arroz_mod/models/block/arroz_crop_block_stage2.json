@@ -1,6 +1,0 @@
-{
-    "parent": "minecraft:block/crop",
-    "textures": {
-        "crop": "arroz_mod:block/arroz_crop_block_stage2"
-    }
-}

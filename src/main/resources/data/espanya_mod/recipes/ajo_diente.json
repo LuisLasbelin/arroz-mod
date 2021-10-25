@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {
+        "item": "espanya_mod:ajo_cabeza"
+      }
+    ],
+    "result": {
+      "item": "espanya_mod:ajo_diente",
+      "count": 6
+    }
+  }

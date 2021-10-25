@@ -1,0 +1,34 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+      "recipes": [
+        "espanya_mod:onigiri"
+      ]
+    },
+    "criteria": {
+      "has_rice": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "espanya_mod:arroz_grano"
+              ]
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "espanya_mod:onigiri"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_rice",
+        "has_the_recipe"
+      ]
+    ]
+  }

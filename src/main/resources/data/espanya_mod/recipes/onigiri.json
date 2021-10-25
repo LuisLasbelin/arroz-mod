@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {
+        "item": "espanya_mod:arroz_grano"
+      },
+      {
+        "item": "espanya_mod:arroz_grano"
+      },
+      {
+        "item": "espanya_mod:arroz_grano"
+      },
+      {
+        "item": "minecraft:dried_kelp"
+      }
+    ],
+    "result": {
+      "item": "espanya_mod:onigiri",
+      "count": 1
+    }
+  }

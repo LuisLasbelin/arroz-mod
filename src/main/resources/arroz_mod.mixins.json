@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.lbelmar.arroz_mod.mixin",
+  "package": "net.lbelmar.espanya_mod.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
   ],

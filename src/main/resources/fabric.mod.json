@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "arroz_mod",
+  "id": "espanya_mod",
   "version": "${version}",
 
   "name": "ArrozMod",
@@ -14,19 +14,19 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/arroz_mod/icon.png",
+  "icon": "assets/espanya_mod/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.lbelmar.arroz_mod.ArrozMod"
+      "net.lbelmar.espanya_mod.ArrozMod"
     ],
     "client": [
-      "net.lbelmar.arroz_mod.ArrozModClient"
+      "net.lbelmar.espanya_mod.ArrozModClient"
     ]
   },
   "mixins": [
-    "arroz_mod.mixins.json"
+    "espanya_mod.mixins.json"
   ],
 
   "depends": {
