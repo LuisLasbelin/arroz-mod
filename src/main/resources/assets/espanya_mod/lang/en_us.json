@@ -3,6 +3,9 @@
   "item.espanya_mod.garrofon_grano": "Garrofon",
   "item.espanya_mod.ajo_diente": "Diente de ajo",
   "item.espanya_mod.ajo_cabeza": "Cabeza de ajo",
+  "item.espanya_mod.ajo_tierno": "Ajo tierno",
   "item.espanya_mod.aceite": "Aceite",
-  "item.espanya_mod.onigiri": "Onigiri"
+  "item.espanya_mod.onigiri": "Onigiri",
+  "biome.espanya_mod.mediterranean_biome": "Bosque Mediterráneo",
+  "info.espanya_mod.seed": "Info de semilla"
 }

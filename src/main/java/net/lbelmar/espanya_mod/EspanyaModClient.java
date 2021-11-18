@@ -7,16 +7,26 @@ package net.lbelmar.espanya_mod;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
 
-public class ArrozModClient implements ClientModInitializer {
+import static net.lbelmar.espanya_mod.EspanyaMod.cropBlocks;
+
+public class EspanyaModClient implements ClientModInitializer {
     
     @Override
     public void onInitializeClient() {
-        // Cutout transparency for the crop blocks
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ArrozMod.ARROZ_CROP_BLOCK);
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ArrozMod.GARROFON_CROP_BLOCK);
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ArrozMod.AJO_PLANT_BLOCK);
+        cropBlocks.forEach(this::addCutoutMipped);
 
+    }
+
+    /**
+     * Adds coutout mipped for items with transparency
+     * 
+     * @param block
+     */
+    public void addCutoutMipped(Block block) {
+        
+        BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutoutMipped());
     }
 }

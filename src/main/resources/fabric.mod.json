@@ -3,7 +3,7 @@
   "id": "espanya_mod",
   "version": "${version}",
 
-  "name": "ArrozMod",
+  "name": "EspanyaMod",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
     "Luis Belloch"
@@ -13,16 +13,16 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/espanya_mod/icon.png",
-
   "environment": "*",
+  "accessWidener": "espanya_mod.accesswidener",
   "entrypoints": {
     "main": [
-      "net.lbelmar.espanya_mod.ArrozMod"
+      "net.lbelmar.espanya_mod.EspanyaMod"
     ],
     "client": [
-      "net.lbelmar.espanya_mod.ArrozModClient"
+      "net.lbelmar.espanya_mod.EspanyaModClient"
     ]
   },
   "mixins": [

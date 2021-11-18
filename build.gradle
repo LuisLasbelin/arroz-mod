@@ -18,6 +18,10 @@ repositories {
 	// for more information about repositories.
 }
 
+loom {
+	accessWidenerPath = file("src/main/resources/espanya_mod.accesswidener")
+}
+
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -55,6 +59,10 @@ java {
 	// if it is present.
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
+	// Uses Java 17 to compile Gradle 7.2
+	toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 }
 
 jar {

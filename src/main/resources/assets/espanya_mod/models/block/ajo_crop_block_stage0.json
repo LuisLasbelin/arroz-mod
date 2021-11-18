@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cross",
+    "textures": {
+        "crop": "espanya_mod:block/ajo_crop_block_stage0"
+    }
+}
